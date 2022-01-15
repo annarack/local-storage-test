@@ -2,6 +2,7 @@ import "./App.css";
 import useLocalStorage from "react-use-localstorage";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import ImageUpload from "./ImageUpload";
 
 function ToDo({ todo, deleteTodo }) {
   return (
@@ -80,6 +81,8 @@ function App() {
         <button type="submit">Add todo</button>
       </form>
       <button onClick={clearAllTodos}>Clear all todos</button>
+      <hr />
+      <ImageUpload imgID="image1" />
     </div>
   );
 }

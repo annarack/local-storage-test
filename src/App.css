@@ -16,4 +16,19 @@
   margin-top: 30px;
   margin-bottom: 10px;
 }
+
+.ImgUpload {
+  margin-top: 30px;
+}
+
+.ImageContainer {
+  margin-top: 20px;
+}
+
+.Image {
+  object-fit: contain;
+  width: 50%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
 }
