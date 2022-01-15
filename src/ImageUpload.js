@@ -15,21 +15,6 @@ export default function ImageUpload(props) {
     }
   }, []);
 
-  // const buildImgTag = () => {
-  //   let imgTag = null;
-  //   if (imageURI) {
-  //     console.log(imageURI);
-  //     imgTag = (
-  //       <div className="ImageContainer">
-  //         <img className="Image" src={imageURI} alt=""></img>
-  //       </div>
-  //     );
-  //   }
-  //   return imgTag;
-  // };
-
-  // const imgTag = buildImgTag();
-
   const getBase64 = (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -59,6 +44,11 @@ export default function ImageUpload(props) {
     }
   };
 
+  const deleteImage = () => {
+    localStorage.removeItem(props.imgID);
+    setImageURI();
+  };
+
   return (
     <div className="ImgUploadContainer">
       {imageURI && (
@@ -74,6 +64,9 @@ export default function ImageUpload(props) {
         <br />
         <br />
         <button type="submit">Save to local storage</button>
+        <br />
+        <br />
+        <button onClick={deleteImage}>Delete image</button>
       </form>
     </div>
   );
