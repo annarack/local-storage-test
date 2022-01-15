@@ -15,6 +15,8 @@ function ToDo({ todo, deleteTodo }) {
 }
 
 function App() {
+  //localStorage always consists out of a key / value pair
+  // the value can only be a string
   const [localtodos, setLocalTodos] = useLocalStorage("todos", " ");
 
   const [todos, setTodos] = useState([]);
@@ -53,6 +55,11 @@ function App() {
     setTodos(filteredTodos);
   };
 
+  const clearAllTodos = () => {
+    localStorage.removeItem("todos");
+    setTodos([]);
+  };
+
   // in comparison to normal html input fields, you manually have to keep the state of it
   // if the input inside the textfield changes save it into the temporary currentToDo state
   return (
@@ -72,6 +79,7 @@ function App() {
         />
         <button type="submit">Add todo</button>
       </form>
+      <button onClick={clearAllTodos}>Clear all todos</button>
     </div>
   );
 }
