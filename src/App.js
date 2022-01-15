@@ -36,7 +36,9 @@ function App() {
   }, [todos]);
 
   // add a new todo to the todos state with an unique id
-  const addTodo = () => {
+  const addTodo = (e) => {
+    // preventDefault() prevents a whole page rerender
+    e.preventDefault();
     const newTodo = {
       id: uuidv4(),
       text: currentToDo,
@@ -61,15 +63,15 @@ function App() {
           <ToDo todo={todo} key={todo.id} deleteTodo={deleteTodo} />
         ))}
       </ul>
-      <div className="NewTodo">
+      <form className="NewTodo" onSubmit={addTodo}>
         <input
           type="text"
           placeholder="Enter your todo"
           value={currentToDo}
           onChange={(e) => setCurrentToDo(e.target.value)}
         />
-        <button onClick={addTodo}>Add todo</button>
-      </div>
+        <button type="submit">Add todo</button>
+      </form>
     </div>
   );
 }
