@@ -18,7 +18,7 @@ function ToDo({ todo, deleteTodo }) {
 function App() {
   //localStorage always consists out of a key / value pair
   // the value can only be a string
-  const [localtodos, setLocalTodos] = useLocalStorage("todos", " ");
+  const [localtodos, setLocalTodos] = useLocalStorage("todos", "{}");
 
   const [todos, setTodos] = useState([]);
   const [currentToDo, setCurrentToDo] = useState("");
